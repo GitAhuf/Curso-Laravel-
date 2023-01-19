@@ -12,7 +12,7 @@
     </h1>
     <p>
         <?php
-            echo $prueba;
+            echo $prueba2;
         ?>
         
     </p>

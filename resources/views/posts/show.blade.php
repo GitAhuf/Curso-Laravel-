@@ -9,9 +9,11 @@
 <body>
     <h1>
         aqui se mostrara el detalle del post:
-        <?php 
-            echo $post
-        ?>
     </h1>
+    <p>
+        <?php
+            echo $prueba2;
+        ?>
+    </p>
 </body>
 </html>

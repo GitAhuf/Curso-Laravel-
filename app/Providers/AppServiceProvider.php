@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        View::composer(['posts.index','posts.create', 'posts.show'], 'App\View\Composers\PostComposer');
         View::share('prueba', 'Este es el mensaje de prueba que estara disponible en todas las vistas');
     }
 }
