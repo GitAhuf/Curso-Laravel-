@@ -8,5 +8,8 @@
 </head>
 <body>
     <h1>aqui se mostrara el formulario para crear un posts</h1>    
+    <?php
+        echo $prueba;
+    ?>
 </body>
 </html>
