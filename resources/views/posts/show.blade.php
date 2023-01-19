@@ -8,7 +8,10 @@
 </head>
 <body>
     <h1>
-        aqui se mostrara el detalle del post
+        aqui se mostrara el detalle del post:
+        <?php 
+            echo $post
+        ?>
     </h1>
 </body>
 </html>

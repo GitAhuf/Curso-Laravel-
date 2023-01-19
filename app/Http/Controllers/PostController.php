@@ -6,7 +6,9 @@
  {
    public function index()
    {
-      return view('posts.index');//
+      return view('posts.index', [
+         'prueba' => 'Este es un mensaje de prueba desde index'
+      ]);//
    }
 
    public function create()
@@ -21,7 +23,22 @@
 
    public function show($post) 
    {
-      return view('posts.show');//
+      //Forma 1
+      /* 
+      return view('posts.show', [
+            'post' => $post
+         ]);         
+      */
+
+      //enviando con el metodo compact
+      /* 
+         return compact('post'); // {"post":"laravel 9"}
+      */
+
+      //Metodo with
+      // return view('posts.show')->with('post', $post);
+      
+      return view('posts.show', compact('post'));
    }
 
    public function edit($post)

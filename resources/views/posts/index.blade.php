@@ -10,5 +10,11 @@
     <h1>
         aqui se mostrara el listado de post        
     </h1>
+    <p>
+        <?php
+            echo $prueba;
+        ?>
+        
+    </p>
 </body>
 </html>
