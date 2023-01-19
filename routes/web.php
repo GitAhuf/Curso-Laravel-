@@ -17,84 +17,78 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-    // return 'hello word';
 });
 
-/*
-Route::get('/posts', [PostController::class, 'index'])->name('posts.index'); //Espera una peticion de tipo get
-Route::get('/posts/create', [PostController::class, 'create'])->name('post.create');
+/* 
+//Manera repetitiva
 
-Route::post('/posts', [PostController::class, 'store'])->name('post.store'); //Espera una peticionde tipo post
+    Route::get('/posts',[PostController::class, 'index'])->name('posts.index');
 
-Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show'); //Detalle
-Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
-Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
-Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
+    Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+
+    Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+
+    Route::get('post/{post}', [PostController::class, 'show'])->name('posts.show');
+
+    Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
+
+    Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
+
+    Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
+
+
 */
 
-/*
-    ///Genera las siete rutas necesarias para un crud
-    Route::resource('posts', PostController::class); 
+// Especificando el metodo siguen repitiendose algunas cosas 
+
+/* 
+    Route::controller(PostController::class)->group(function(){
+        
+        Route::get('/posts', 'index')->name('posts.index');
+        
+        Route::get('/posts/create', 'create')->name('posts.create');
+        
+        Route::post('/posts', 'store')->name('posts.store');
+        
+        Route::get('post/{post}', 'show')->name('posts.show');
+        
+        Route::get('/posts/{post}/edit', 'edit')->name('posts.edit');
+        
+        Route::put('/posts/{post}', 'update')->name('posts.update');
+        
+        Route::delete('/posts/{post}', 'destroy')->name('posts.destroy');
+    });
 */
 
-/*
-    ///Genera unicamente el metodo index y show
-    Route::resource('posts',PostController::class)->only([
-        'index', 'show'    
-    ]);
+//Agregando el metodo prefix
+/* 
+Route::prefix('posts')->controller(PostController::class)->group(function(){
+    
+    Route::get('/', 'index')->name('posts.index');
+    
+    Route::get('/create', 'create')->name('posts.create');
+    
+    Route::post('/', 'store')->name('posts.store');
+    
+    Route::get('/{post}', 'show')->name('posts.show');
+        
+    Route::get('/{post}/edit', 'edit')->name('posts.edit');
+    
+    Route::put('/{post}', 'update')->name('posts.update');
+    
+    Route::delete('/{post}', 'destroy')->name('posts.destroy');
+});
+    
 */
 
-/*
-    ///Genera todas excepto la excepcion
-    Route::resource('posts', PostController::class)->except([
-        'destroy'
-    ]);
-*/
+//Eliminando nombres y agregando el metodo name
 
-// Route::resource('articulos', PostController::class);
-Route::resource('articulos', PostController::class)
-    ->parameters([
-        'articulos' => 'post'
-    ])
-->names('posts'); 
-
-Route::get('/about', AboutController::class)
-        ->name('about');
-
-
-
-// Route::get('/prueba',function () {
-//     return 'hola desde la ruta prueba';
-// });
-
-// Route::get('/curso/informacion', function () {
-//     return "Este es el mejor curso";
-
-// });
-
-// Route::get('/lectura/{lectura}/{category?}', function ($lectura, $category = "Sin categoria") {
-//     return "Bienvenido a lectura $lectura " . "de la categoria: $category";
-// });
-
-// Route::get('/curso/{curso}/{category?}', function ($curso, $category = null) {
-//     if($category){
-//         return "Bienvenido al curso $curso " . "de la categoria $category";
-//     }
-//     return "Bienvenido al curso $curso ";
-// });
-
-// Route::get('/taller/{taller}', function ($taller) {
-//     return "Bienvenido al taller $taller";
-// })->where('taller', '[A-Za-z]+');
-
-// Route::get('/dictado/{dictado}', function ($dictado) {
-//     return "Bienvenido al dictado $dictado";
-// })->whereAlpha('dictado'); // Especifica q lo que espera en el paramero de tipo texto
-
-// Route::get('/evaluacion/{evaluacion}', function ($evaluacion) {
-//     return "Bienvenido a la evaluacion numero : $evaluacion";
-// })->whereAlphaNumeric('evaluacion'); // Valida numeros y letras
- 
-// Route::get('/audiocurso2/{id}', function ($id){
-//     return "el audio curso numero $id";
-// });
+Route::prefix('posts')->name('posts.')->controller(PostController::class)->group(function(){
+    Route::get('/', 'index')->name('index');
+    Route::post('/', 'store')->name('store');
+    Route::get('/{post}', 'show')->name('show');
+    Route::put('/{post}', 'update')->name('update');
+    Route::get('/create', 'create')->name('create');
+    Route::get('/{post}/edit', 'edit')->name('edit'); 
+    Route::delete('/{post}', 'destroy')->name('destroy');    
+});
