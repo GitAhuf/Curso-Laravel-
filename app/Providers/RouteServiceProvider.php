@@ -28,11 +28,6 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::pattern('id', '[0-9]+'); //Nueva validacion global siempre que recibamos un oparametro id
 
-        Route::resourceVerbs([
-            'create' => 'crear',
-            'edit'=> 'editar',
-        ]);
-        
         $this->configureRateLimiting();
 
         $this->routes(function () {

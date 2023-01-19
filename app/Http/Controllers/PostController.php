@@ -6,12 +6,12 @@
  {
    public function index()
    {
-      return 'Aquí se mostrará el listado de los posts';
+      return view('posts.index');//
    }
 
    public function create()
    {
-      return 'Aquí se mostrara el formulario para crear un nuevo post';
+      return view('posts.create');//
    }
 
    public function store()
@@ -21,12 +21,12 @@
 
    public function show($post) 
    {
-      return "Mostrando nuevo contenido del $post";
+      return view('posts.show');//
    }
 
    public function edit($post)
    {
-      return "El posts a editar es $post";
+      return view('posts.edit');// http://example3.test/posts/1/edit
    }
 
    public function update($post)
