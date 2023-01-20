@@ -11,9 +11,7 @@
         aqui se mostrara el listado de post        
     </h1>
     <p>        
-        {{$etiqueta}} {{--//muestra lo que hay en la variable como string //Escapar codigo html --}}
-        {!!$etiqueta!!}{{--  //muestra la variable --}}
-        
+       @{{ $prueba }} {{-- variable javascript sin que entre en conficto con las variables php--}}
     </p>
 </body>
 </html>
