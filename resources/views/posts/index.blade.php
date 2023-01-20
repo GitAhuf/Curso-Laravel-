@@ -11,7 +11,18 @@
         aqui se mostrara el listado de post        
     </h1>
     <p>        
-       @{{ $prueba }} {{-- variable javascript sin que entre en conficto con las variables php--}}
+        este es un parrafo
     </p>
+    <script>
+        // let posts = {!! json_encode($posts) !!};
+        // console.log(posts);
+
+        // let posts = {{ Js::from($posts)}}
+        // console.log(posts);
+
+        let posts = @json($posts);
+        console.log(posts);
+
+    </script>
 </body>
 </html>
