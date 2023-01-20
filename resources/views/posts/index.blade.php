@@ -10,8 +10,7 @@
     <h1>
         aqui se mostrara el listado de post        
     </h1>
-    <p>
-        
+    <p>        
         {{$etiqueta}} {{--//muestra lo que hay en la variable como string //Escapar codigo html --}}
         {!!$etiqueta!!}{{--  //muestra la variable --}}
         
