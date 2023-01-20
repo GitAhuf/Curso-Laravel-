@@ -11,9 +11,9 @@
         aqui se mostrara el listado de post        
     </h1>
     <p>
-        <?php
-            echo $prueba2;
-        ?>
+        
+        {{$etiqueta}} {{--//muestra lo que hay en la variable como string //Escapar codigo html --}}
+        {!!$etiqueta!!}{{--  //muestra la variable --}}
         
     </p>
 </body>

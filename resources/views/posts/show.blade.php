@@ -11,9 +11,7 @@
         aqui se mostrara el detalle del post:
     </h1>
     <p>
-        <?php
-            echo $prueba2;
-        ?>
+       {{ $prueba }}
     </p>
 </body>
 </html>
