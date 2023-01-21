@@ -21,7 +21,11 @@
          ]
       ];
 
-      return view('posts.index', compact('posts'));//
+      $valor = 'z';
+
+
+
+      return view('posts.index', compact('posts', 'valor'));//
    }
 
    public function create()

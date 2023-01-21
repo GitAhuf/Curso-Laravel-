@@ -14,23 +14,24 @@
         este es un parrafo
     </p>
 
-    {{--     
-        @env('local')
-            <p>Estamos en local</p>
-        @endenv
-
-        @env('production')
-            <p>Estamos en produccion</p>    
-        @endenv 
-    --}}
-
-    @env('local')
-        <p>Estamos en local</p>
-    @endenv
-
-    @production
-        <p>Estamos en produccion</p>    
-    @endproduction
-
+    @switch($valor)
+        @case('a')
+            <p>El valor es a</p>
+            @break
+        @case('e')
+        <p>El valor es e</p>
+            @break
+        @case('i')
+        <p>El valor es i</p>
+            @break
+        @case('o')
+        <p>El valor es o</p>
+            @break
+        @case('u')
+        <p>El valor es u</p>
+            @break
+        @default
+        <p>El valor no es vocal</p>
+    @endswitch
 </body>
 </html>
