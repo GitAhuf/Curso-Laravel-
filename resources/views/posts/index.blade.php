@@ -11,11 +11,13 @@
         aqui se mostrara el listado de post        
     </h1>
     <ul>
-        @foreach ($posts as $item)
+        @forelse ($posts as $item)
             <li>
                 {{$item['title']}} - {{$item['content']}}           
             </li>
-        @endforeach
+        @empty
+            <li>No hay posts</li>
+        @endforelse
     </ul>
 </body>
 </html>
