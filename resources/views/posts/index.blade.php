@@ -11,21 +11,38 @@
         aqui se mostrara el listado de post        
     </h1>
 
-    {{-- @for ($i = 1; $i <= 10; $i++)
-        <p>{{$i}}</p>        
-    @endfor --}}
-
-    @php 
-        $i = 1;
-    @endphp
-
-    @while ($i <= 10)
-        <p>
-            {{$i}}
-        </p>
-        @php
-            $i++;
-        @endphp        
-    @endwhile
+    {{-- <ul>
+        @forelse ($posts as $post)
+            <li @if($loop->last ) style="color:red" @endif> 
+                {{$post['title'] . ' - indice: ' . $loop->index . ' - interaccion: ' . $loop->iteration}} 
+            </li>
+        @empty
+            <li>
+                No hay nada
+            </li>
+        @endforelse
+    </ul> --}}
+    {{-- <ul>
+        @forelse ($posts as $post)
+            <li @if($loop->iteration % 2 == 0) style="color:red" @else style="color:green" @endif> 
+                {{$post['title'] . ' - indice: ' . $loop->index . ' - interaccion: ' . $loop->iteration}} 
+            </li>
+        @empty
+            <li>
+                No hay nada
+            </li>
+        @endforelse
+    </ul> --}}
+    <ul>
+        @forelse ($posts as $post)
+            <li @if($loop->iteration % 2 == 0) style="color:red" @else style="color:green" @endif> 
+                {{$post['title'] . ' - indice: ' . $loop->index . ' - interaccion: ' . $loop->iteration . ' Faltan iterar: ' . $loop->remaining}} 
+            </li>
+        @empty
+            <li>
+                No hay nada
+            </li>
+        @endforelse
+    </ul>
 </body>
 </html>
