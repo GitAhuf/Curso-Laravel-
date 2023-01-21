@@ -18,14 +18,13 @@
                 $type = 'danger';
             @endphp
             
-            <x-alert :type="$type" class="mb-32">
+            <x-alert2 :type="$type" class="mb-32">
 {{-- 
                 <x-slot name="title">
                     Titulo de prue
                 </x-slot> --}}
-                Esto es un texto de prueba
-            </x-alert>
-            <p>dfsfsd</p>
+                Esto es un componente anonimo
+            </x-alert2>
         </div>
     </body>
 </html>
