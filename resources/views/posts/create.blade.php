@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+<x-layout>
     <h1>aqui se mostrara el formulario para crear un posts</h1>  
     <p>
         <?php
             echo $prueba2;
-        ?>
+            ?>
     </p>  
-</body>
-</html>
+</x-layout>

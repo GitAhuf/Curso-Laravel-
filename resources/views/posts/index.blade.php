@@ -1,32 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+<x-layout>
 
-    <style>
-        .color-red {
-            color: red;
-        }
+    <x-slot name="title">
+        Posts
+    </x-slot>
 
-        .color-green {
-            color: green;
-        }
-    </style>
-</head>
-<body>
+    {{-- <x-slot name="meta">
+        <meta name="description" content="Listado de posts">
+    </x-slot> --}}
+
+    @push('meta')
+        <meta name="description" content="Listado de posts">
+    @endpush
+
     <h1>
         aqui se mostrara el listado de post        
     </h1>
-
-   
+    
     <ul>
         @forelse ($posts as $post)
-            <li @class([
-                'color-red' => $loop->iteration % 2 == 0,
-                'color-green' => $loop->iteration % 2 != 0
+        <li @class([
+            'color-red' => $loop->iteration % 2 == 0,
+            'color-green' => $loop->iteration % 2 != 0
             ])> 
                 {{$post['title'] . ' - indice: ' . $loop->index . ' - interaccion: ' . $loop->iteration}} 
             </li>
@@ -36,5 +30,5 @@
             </li>
         @endforelse
     </ul>
-</body>
-</html>
+    
+</x-layout>
