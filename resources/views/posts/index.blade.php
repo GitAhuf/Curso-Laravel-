@@ -1,21 +1,21 @@
-<x-layout>
+@extends('layouts.app')
 
-    <x-slot name="title">
-        Posts
-    </x-slot>
+@section('title','Posts')
+@section('title','Posts2') {{-- No se renderiza --}}
 
-    {{-- <x-slot name="meta">
-        <meta name="description" content="Listado de posts">
-    </x-slot> --}}
+@push('meta')
+<meta name="description" content="Listado de posts">
+@endpush
 
-    @push('meta')
-        <meta name="description" content="Listado de posts">
-    @endpush
+@push('meta')
+<meta name="keywords" content="posts, listado">
+@endpush
 
+@section('content')
     <h1>
         aqui se mostrara el listado de post        
     </h1>
-    
+
     <ul>
         @forelse ($posts as $post)
         <li @class([
@@ -29,6 +29,5 @@
                 No hay nada
             </li>
         @endforelse
-    </ul>
-    
-</x-layout>
+    </ul>    
+@endsection
