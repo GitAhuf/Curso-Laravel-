@@ -11,10 +11,15 @@
 <meta name="keywords" content="posts, listado">
 @endpush
 
+@section('header')
+    @parent
+    <p>esto es un parrafo adicional al header.</p>
+@endsection
+
 @section('content')
-    <h1>
+    <h2>
         aqui se mostrara el listado de post        
-    </h1>
+    </h2>
 
     <ul>
         @forelse ($posts as $post)

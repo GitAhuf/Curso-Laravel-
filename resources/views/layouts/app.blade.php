@@ -8,6 +8,12 @@
     @stack('meta')
 </head>
 <body>
+    @section('header')
+        <header>
+            <h1>Esto es el header</h1>
+        </header>
+    @show
+
     @yield('content')
 </body>
 </html>
