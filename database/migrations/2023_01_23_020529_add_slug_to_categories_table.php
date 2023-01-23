@@ -19,6 +19,13 @@ return new class extends Migration
                   ->after('name')
                   ->nullable()
                   ->unique();
+
+            $table->integer('index')//-1,-2,-3,-4,-5 a 1,2,3,4,5,6
+                //   ->autoIncrement()
+                //   ->default(5);
+                  ->unsigned(); //1,2,3,4,5,6
+            
+                $table->timestamp('fecha_actual');
         });
     }
 
