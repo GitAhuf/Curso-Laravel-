@@ -19,3 +19,6 @@ php artisan migrate:fresh             //Elimina todas las tablas incluso las que
 
 crear migracion
 php artisan make:migration create_posts_table //crea una migracion y define los metodos up() y down con el nombre posts
+
+crear migracion especifica para una tabla que no elimine los registros existentes
+php artisan make:migration add_slug_to_categories_table
