@@ -22,3 +22,6 @@ php artisan make:migration create_posts_table //crea una migracion y define los 
 
 crear migracion especifica para una tabla que no elimine los registros existentes
 php artisan make:migration add_slug_to_categories_table
+
+composer require doctrine/dbal //instalar paquete para renombrar columnas
+
