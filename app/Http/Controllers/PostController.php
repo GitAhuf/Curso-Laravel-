@@ -2,6 +2,8 @@
 
  namespace App\Http\Controllers;
 
+ use Illuminate\Http\Request;
+
  class PostController extends Controller 
  {
    public function index()
@@ -32,8 +34,23 @@
       return view('posts.create');//
    }
 
-   public function store()
+   public function store(Request $request)
    {
+
+      // return $request->all(); //trayendo todos los inputs
+      // return $request->input('title'); // Trayendo el input title
+      // return $request->path(); //Trayendo el path
+      // return $request->url(); //obteniendo url
+      // return $request->host(); // obteniendo Host
+      // return $request->method(); // obteniendo Host
+      // return $request->ip(); // obteniendo Host
+
+      // $data = $request->collect(); // obteniendo el array como coleccion
+      // return $data->first(); //obteniendo el primer elementos de la coleccion
+
+      // $data = $request->only('title','slug','body');
+      $data = $request->except("_token");
+      return $data;
       return 'Aquí se procesará el post';
    }
 
