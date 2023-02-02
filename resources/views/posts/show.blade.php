@@ -1,4 +1,5 @@
 <x-layout>
+    
     <h1>
         Aqui se mostrara el detalle del post {{$post}}:
     </h1>    

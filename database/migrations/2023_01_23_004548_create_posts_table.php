@@ -54,13 +54,13 @@ return new class extends Migration
             $table->string('body');
             $table->string('image_url')->nullable();
 
-            $table->foreignId('user_id')
-                  ->constrained()
-                  ->onDelete('cascade');
+            // $table->foreignId('user_id')
+            //       ->constrained()
+            //       ->onDelete('cascade');
 
-            $table->foreignId('category_id')
-                  ->constrained()
-                  ->onDelete('cascade');
+            // $table->foreignId('category_id')
+            //       ->constrained()
+            //       ->onDelete('cascade');
 
             $table->timestamps();
         });
