@@ -16,6 +16,17 @@
     <title>{{ $title ?? 'Coders Free' }}</title>
 </head>
 <body>
+    <nav>
+        <ul>
+            <li>
+                <a href="{{route('welcome')}}">Home</a>
+            </li>
+            <li>
+                <a href="{{route('posts.index')}}">Posts</a>
+            </li>
+        </ul>
+    </nav>
     {{ $slot }}
+
 </body>
 </html>

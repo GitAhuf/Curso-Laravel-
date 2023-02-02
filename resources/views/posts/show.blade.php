@@ -1,10 +1,7 @@
 <x-layout>
-
     <h1>
-        aqui se mostrara el detalle del post:
-    </h1>
-    <p>
-        {{ $prueba }}
-    </p>
-    
+        Aqui se mostrara el detalle del post {{$post}}:
+    </h1>    
+
+    <a href="{{route('posts.edit', $post)}}">Editar post</a>
 </x-layout>
