@@ -1,4 +1,7 @@
 <x-layout>
+    <div class="container mx-auto py-12">
+
+    
     <x-slot name="title">
         Posts
     </x-slot>
@@ -14,8 +17,8 @@
     <ul>
         @forelse ($posts as $post)
         <li>
-            <a href="{{route('posts.show', $post['id'])}}">
-                {{ $post['title']}}
+            <a href="{{route('posts.show', $post->id)}}">
+                {{ $post->title}}
             </a>
         </li>
         @empty
@@ -24,4 +27,10 @@
             
         @endForelse
     </ul>
+
+    <div class="w-full text-center">
+        {{ $posts->links() }}
+    </div>
+    </div>
+
 </x-layout>

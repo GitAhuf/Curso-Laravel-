@@ -14,9 +14,10 @@
     @stack('meta')
         
     <title>{{ $title ?? 'Coders Free' }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <nav>
+    <nav class="container mx-auto">
         <ul>
             <li>
                 <a href="{{route('welcome')}}">Home</a>
