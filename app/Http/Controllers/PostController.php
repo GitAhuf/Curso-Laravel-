@@ -2,7 +2,10 @@
 
  namespace App\Http\Controllers;
 
- use Illuminate\Http\Request;
+use App\Models\Category;
+use App\Models\Post;
+use App\Models\User;
+use Illuminate\Http\Request;
 
  class PostController extends Controller 
  {
@@ -30,28 +33,25 @@
    }
 
    public function create()
-   {
-      return view('posts.create');//
+   {  
+
+      $categories = Category::all();
+      $users = User::all();
+      return view('posts.create', compact('categories','users'));
    }
 
    public function store(Request $request)
    {
+      $post = new Post();
 
-      // return $request->all(); //trayendo todos los inputs
-      // return $request->input('title'); // Trayendo el input title
-      // return $request->path(); //Trayendo el path
-      // return $request->url(); //obteniendo url
-      // return $request->host(); // obteniendo Host
-      // return $request->method(); // obteniendo Host
-      // return $request->ip(); // obteniendo Host
-
-      // $data = $request->collect(); // obteniendo el array como coleccion
-      // return $data->first(); //obteniendo el primer elementos de la coleccion
-
-      // $data = $request->only('title','slug','body');
-      $data = $request->except("_token");
-      return $data;
-      return 'Aquí se procesará el post';
+      $post->title = $request->title;
+      $post->slug = $request->slug;
+      $post->body = $request->body;
+      $post->category_id = $request->category_id;
+      $post->user_id = $request->user_id;
+      $post->save();
+      // return $post;
+      return 'El post se creo con exito, datos almaccenados: ' .  $post;
    }
 
    public function show($post) 

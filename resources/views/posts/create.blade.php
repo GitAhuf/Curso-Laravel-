@@ -24,10 +24,34 @@
             <Textarea name="body" id="body" cols="30" rows="10" ></Textarea>
         </div>
         <br>
+        {{-- Users --}}
+        <div>
+            <label for="user_id">Usuarios</label>
+            <br>
+            <select name="user_id" id="user_id">
+                @foreach ($users as $user)
+                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                @endforeach
+            </select>
+            <br>
+            <br>
+        </div>
+        {{-- Categories --}}
+        <div>
+            <label for="category_id">Categorías</label>
+            <br>
+            <select name="category_id" id="category_id">
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+            <br>
+            <br>
+        </div>
 
         <div>
                 <button type="submit">Enviar</button>
-            </div>
+        </div>
             
         </form>
     </center>
