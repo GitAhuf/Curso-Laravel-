@@ -33,6 +33,7 @@ use Illuminate\Http\Request;
 
    public function show($post) 
    {    
+      $post = Post::findOrFail($post);
       return view('posts.show', compact('post'));
    }
 

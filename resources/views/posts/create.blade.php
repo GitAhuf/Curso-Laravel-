@@ -1,6 +1,6 @@
 <x-layout>
-    <h1>aqui se mostrara el formulario para crear un nuevo posts</h1>  
-    <center class="center">
+    <div class="container mx-auto py-12">
+        <h1>Aqui se mostrara el formulario para crear un nuevo posts</h1>  
     <form action="{{route('posts.store')}}" method="POST">
         @csrf
         {{-- Name --}}
@@ -23,14 +23,7 @@
             <br>
             <Textarea name="body" id="body" cols="30" rows="10" ></Textarea>
         </div>
-        <br>
-          {{-- imagen --}}
-          <div>
-            <label for="image_url">Imagen</label>
-            <br>
-            <input type="text" name="image_url">            
-        </div>
-        <br>
+        <br>        
         <br>
         {{-- Users --}}
         <div>
@@ -62,5 +55,5 @@
         </div>
             
         </form>
-    </center>
+    </div>
 </x-layout>

@@ -1,8 +1,12 @@
 <x-layout>
+    <div class="container mx-auto py-12">
     
-    <h1>
-        Aqui se mostrara el detalle del post {{$post}}:
-    </h1>    
+        <h1>
+            {{$post->title}}
+        </h1>    
 
-    <a href="{{route('posts.edit', $post)}}">Editar post</a>
+        <p>{{$post->body}}</p>
+
+        <a href="{{route('posts.edit', $post)}}">Editar post</a>
+    </div>
 </x-layout>
