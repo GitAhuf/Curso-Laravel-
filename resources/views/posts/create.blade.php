@@ -24,6 +24,14 @@
             <Textarea name="body" id="body" cols="30" rows="10" ></Textarea>
         </div>
         <br>
+          {{-- imagen --}}
+          <div>
+            <label for="image_url">Imagen</label>
+            <br>
+            <input type="text" name="image_url">            
+        </div>
+        <br>
+        <br>
         {{-- Users --}}
         <div>
             <label for="user_id">Usuarios</label>

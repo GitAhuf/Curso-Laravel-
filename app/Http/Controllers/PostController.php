@@ -42,16 +42,8 @@ use Illuminate\Http\Request;
 
    public function store(Request $request)
    {
-      $post = new Post();
-
-      $post->title = $request->title;
-      $post->slug = $request->slug;
-      $post->body = $request->body;
-      $post->category_id = $request->category_id;
-      $post->user_id = $request->user_id;
-      $post->save();
-      // return $post;
-      return 'El post se creo con exito, datos almaccenados: ' .  $post;
+      Post::create($request->all());
+      return 'El post se creo con exito, datos almaccenados: ';
    }
 
    public function show($post) 
