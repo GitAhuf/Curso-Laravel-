@@ -27,8 +27,9 @@ use Illuminate\Http\Request;
 
    public function store(Request $request)
    {
-      Post::create($request->all());
-      return 'El post se creo con exito, datos almaccenados: ';
+      $post = Post::create($request->all());
+      // return 'El post se creo con exito, datos almaccenados: ';
+      return redirect()->route('posts.edit', $post);
    }
 
    public function show($post) 
@@ -51,13 +52,13 @@ use Illuminate\Http\Request;
       $post = Post::findOrFail($post);
 
       $post->update($request->all());
-      return "post actualizado";      
+      return redirect()->route('posts.edit',$post);      
    }
 
    public function destroy($post)
    {
       $post = Post::findOrFail($post);
       $post->delete();
-      return "El Post se elimino Correctamente";
+      return redirect()->route('posts.index');
    }
  }
