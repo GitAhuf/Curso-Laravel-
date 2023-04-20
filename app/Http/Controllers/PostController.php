@@ -2,6 +2,7 @@
 
  namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
@@ -25,17 +26,9 @@ use Illuminate\Http\Request;
       return view('posts.create', compact('categories','users'));
    }
 
-   public function store(Request $request)
+   public function store(PostRequest $request)
    {
-      $request->validate([
-         'slug'        => 'required',
-         'body'        => 'required',
-         'title'       => 'required',
-         'user_id'     => 'required',
-         'category_id' => 'required'
-      ]);
-      $post = Post::create($request->all());
-      // return 'El post se creo con exito, datos almaccenados: ';
+      $post = Post::create($request->all());      
       return redirect()->route('posts.edit', $post);
    }
 
@@ -51,15 +44,8 @@ use Illuminate\Http\Request;
       return view('posts.edit', compact('post','categories', 'users'));
    }
 
-   public function update(Request $request,Post $post)
-   {  
-      $request->validate([
-         'slug'        => 'required',
-         'body'        => 'required',
-         'title'       => 'required',
-         'user_id'     => 'required',
-         'category_id' => 'required'
-      ]);
+   public function update(PostRequest $request,Post $post)
+   { 
       $post->update($request->all());
       return redirect()->route('posts.edit',$post);      
    }

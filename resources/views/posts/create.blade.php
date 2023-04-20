@@ -56,11 +56,14 @@
         <div>
             <label for="category_id">Categorías</label>
             <br>
-            <select name="category_id" id="category_id" class="form-control">
+            <select name="category_id" id="category_id" class="form-control  @error('category_id') border-danger @enderror">
                 @foreach ($categories as $category)
                     <option @selected(old('category_id') == $category->id) value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
             </select>
+            @error('category_id')
+                <small class="text-dange">{{$message}}</small>
+            @enderror
             <br>
             <br>
         </div>
@@ -69,11 +72,14 @@
           <div>
             <label for="user_id">Usuarios</label>
             <br>
-            <select name="user_id" id="user_id" class="form-control">
+            <select name="user_id" id="user_id" class="form-control  @error('user_id') border-danger @enderror">
                 @foreach ($users as $user)
                     <option @selected(old('user_id') == $user->id) value="{{ $user->id }}">{{ $user->name }}</option>
                 @endforeach
             </select>
+            @error('user_id')
+            <small class="text-dange">{{message}}</small>
+        @enderror
             <br>
             <br>
         </div>
