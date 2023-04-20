@@ -16,7 +16,7 @@
         <div>
             <label for="title">Título</label>
             <br>
-            <input type="text" name="title" id="title" class="form-control @error('title') border-danger @enderror">
+            <input type="text" name="title" value="{{ old('title')}}" id="title" class="form-control @error('title') border-danger @enderror">
 
             @error('title')
                 <div>
@@ -29,7 +29,7 @@
         <div>
             <label for="slug">Slug</label>
             <br>
-            <input type="text" name="slug" id="slug" class="form-control  @error('slug') border-danger @enderror">
+            <input type="text" name="slug" value="{{old('slug')}}" id="slug" class="form-control  @error('slug') border-danger @enderror">
             @error('slug')
             <div>
                 <small class="text-danger">{{$message}}</small>
@@ -42,7 +42,7 @@
         <div>
             <label for="">Contenido</label>
             <br>
-            <Textarea name="body" id="body" cols="30" rows="10" class="form-control  @error('body') border-danger @enderror"></Textarea>
+            <Textarea name="body" id="body"  cols="30" rows="10" class="form-control  @error('body') border-danger @enderror">{{old('body')}}</Textarea>
 
             @error('body')
                 <div>
@@ -51,26 +51,27 @@
             @enderror
         </div>
         <br>        
-        <br>
-        {{-- Users --}}
-        <div>
-            <label for="user_id">Usuarios</label>
-            <br>
-            <select name="user_id" id="user_id" class="form-control">
-                @foreach ($users as $user)
-                    <option value="{{ $user->id }}">{{ $user->name }}</option>
-                @endforeach
-            </select>
-            <br>
-            <br>
-        </div>
+        <br>      
         {{-- Categories --}}
         <div>
             <label for="category_id">Categorías</label>
             <br>
             <select name="category_id" id="category_id" class="form-control">
                 @foreach ($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    <option @selected(old('category_id') == $category->id) value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+            <br>
+            <br>
+        </div>
+
+          {{-- Users --}}
+          <div>
+            <label for="user_id">Usuarios</label>
+            <br>
+            <select name="user_id" id="user_id" class="form-control">
+                @foreach ($users as $user)
+                    <option @selected(old('user_id') == $user->id) value="{{ $user->id }}">{{ $user->name }}</option>
                 @endforeach
             </select>
             <br>

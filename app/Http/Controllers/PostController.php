@@ -53,6 +53,13 @@ use Illuminate\Http\Request;
 
    public function update(Request $request,Post $post)
    {  
+      $request->validate([
+         'slug'        => 'required',
+         'body'        => 'required',
+         'title'       => 'required',
+         'user_id'     => 'required',
+         'category_id' => 'required'
+      ]);
       $post->update($request->all());
       return redirect()->route('posts.edit',$post);      
    }
