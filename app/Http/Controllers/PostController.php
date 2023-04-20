@@ -32,32 +32,26 @@ use Illuminate\Http\Request;
       return redirect()->route('posts.edit', $post);
    }
 
-   public function show($post) 
-   {    
-      $post = Post::findOrFail($post);
+   public function show(Post $post) 
+   { 
       return view('posts.show', compact('post'));
    }
 
-   public function edit($post)
+   public function edit(Post $post)
    {      
-      $post = Post::findOrFail($post);
-
       $categories = Category::all();
       $users = User::all();
       return view('posts.edit', compact('post','categories', 'users'));
    }
 
-   public function update(Request $request, $post)
+   public function update(Request $request,Post $post)
    {  
-      $post = Post::findOrFail($post);
-
       $post->update($request->all());
       return redirect()->route('posts.edit',$post);      
    }
 
-   public function destroy($post)
+   public function destroy(Post $post)
    {
-      $post = Post::findOrFail($post);
       $post->delete();
       return redirect()->route('posts.index');
    }
