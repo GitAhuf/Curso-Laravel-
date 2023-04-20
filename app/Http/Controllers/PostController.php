@@ -27,6 +27,13 @@ use Illuminate\Http\Request;
 
    public function store(Request $request)
    {
+      $request->validate([
+         'slug'        => 'required',
+         'body'        => 'required',
+         'title'       => 'required',
+         'user_id'     => 'required',
+         'category_id' => 'required'
+      ]);
       $post = Post::create($request->all());
       // return 'El post se creo con exito, datos almaccenados: ';
       return redirect()->route('posts.edit', $post);
