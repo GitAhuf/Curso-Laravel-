@@ -38,17 +38,26 @@ use Illuminate\Http\Request;
    }
 
    public function edit($post)
-   {
-      return view('posts.edit');// http://example3.test/posts/1/edit
+   {      
+      $post = Post::findOrFail($post);
+
+      $categories = Category::all();
+      $users = User::all();
+      return view('posts.edit', compact('post','categories', 'users'));
    }
 
-   public function update($post)
-   {
-      return "El posts a actualizar es $post";
+   public function update(Request $request, $post)
+   {  
+      $post = Post::findOrFail($post);
+
+      $post->update($request->all());
+      return "post actualizado";      
    }
 
    public function destroy($post)
    {
-      "Aquí se eliminará el post $post";
+      $post = Post::findOrFail($post);
+      $post->delete();
+      return "El Post se elimino Correctamente";
    }
  }
